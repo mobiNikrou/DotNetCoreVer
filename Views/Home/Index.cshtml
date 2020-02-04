@@ -1,8 +1,34 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model DotNetCoreVer1.Models.Test
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<h2 class="mt-5">Testing Form</h2>
+<h6 class="mb-4">Set The Required Parameters And Click On "RunTest" Button.</h6>
+@using (Html.BeginForm("HandelForm", "Home", FormMethod.Post, new { @class = "form-group" }))
+{
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    @Html.LabelFor(model => model.ProjectName)
+                    <select asp-for="ProjectName" class="form-control" asp-items="Html.GetEnumSelectList<ProjectNames>()"></select>
+                </div>
+                <div class="col-4">
+                    @Html.LabelFor(model => model.ApplicatioName)
+                   <select asp-for="ApplicatioName" class="form-control" asp-items="Html.GetEnumSelectList<ApplicatioNames>()"></select>
+                </div>
+                <div class="col-4">
+                    @Html.LabelFor(model => model.TestType)
+                   <select asp-for="TestType" class="form-control" asp-items="Html.GetEnumSelectList<TestTypes>()"></select>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary float-right">RunTest</button>
+            @Html.ActionLink("Test History", "TestHistory","","",new { @class= "btn btn-secondary" })
+        </div>
+    </div>
+}

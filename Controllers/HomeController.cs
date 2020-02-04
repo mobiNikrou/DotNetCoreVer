@@ -18,6 +18,7 @@ namespace DotNetCoreVer1.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
