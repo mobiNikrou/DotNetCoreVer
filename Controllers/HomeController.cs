@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotNetCoreVer1.Models;
+using DotNetCoreVer1.InterFaces;
 
 namespace DotNetCoreVer1.Controllers
 {
@@ -25,11 +26,13 @@ namespace DotNetCoreVer1.Controllers
         }
 
         [HttpPost]
-        public ActionResult HandelForm (Test ApplicatioNames, Test TestTypes, Test ProjectNames) 
+        public ActionResult HandelForm(HandelInputData handelinputdata,Test applicationames, Test testtypes, Test projectnames) 
         {
-
+            handelinputdata.LocalRoute(applicationames, testtypes, projectnames);
+            
+            return RedirectToAction("Index");
         }
-        
+
         public IActionResult Privacy()
         {
             return View();

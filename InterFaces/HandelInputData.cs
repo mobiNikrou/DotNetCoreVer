@@ -1,8 +1,10 @@
+using DotNetCoreVer1.Models;
+
 namespace DotNetCoreVer1.InterFaces
 {
     public interface IHandelInputData
     {
-        void LocalRoute();
+        void LocalRoute(Test applicationames, Test testtypes, Test projectnames);
     }
     public class HandelInputData : IHandelInputData
     {
@@ -10,9 +12,9 @@ namespace DotNetCoreVer1.InterFaces
         {
             
         }
-        public void LocalRoute()
+        public void LocalRoute(Test applicationames, Test testtypes, Test projectnames)
         {
-            
+
         }
     }
 
