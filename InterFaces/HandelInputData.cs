@@ -4,7 +4,7 @@ namespace DotNetCoreVer1.InterFaces
 {
     public interface IHandelInputData 
     {
-        void LocalRoute (Test EnumObj);
+        void LocalRoute (Test FormVal);
     }
     public class HandelInputData : IHandelInputData 
     {
@@ -12,9 +12,9 @@ namespace DotNetCoreVer1.InterFaces
         {
 
         }
-        public void LocalRoute (Test EnumObj) 
+        public void LocalRoute (Test FormVal) 
         {
-            switch (EnumObj.ApplicatioName) 
+            switch (FormVal.ApplicatioName) 
             {
                 case ApplicatioNames.AlborzContactManagingDirector:
                     {

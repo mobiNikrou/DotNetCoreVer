@@ -26,9 +26,9 @@ namespace DotNetCoreVer1.Controllers
         }
 
         [HttpPost]
-        public ActionResult HandelForm(HandelInputData handelinputdata,Test EnumObj) 
+        public ActionResult HandelForm(HandelInputData handelinputdata,Test FormVal) 
         {
-            handelinputdata.LocalRoute(EnumObj);
+            handelinputdata.LocalRoute(FormVal);
             return RedirectToAction("Index");
         }
 
