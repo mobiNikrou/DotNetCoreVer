@@ -8,9 +8,12 @@ namespace DotNetCoreVer1.InterFaces
     }
     public class HandelInputData : IHandelInputData 
     {
+        private readonly TestingResult testingresultdata;
+        private readonly SaveDB savedb;
         public HandelInputData () 
         {
-
+            savedb = new SaveDB();
+            testingresultdata = new TestingResult();
         }
         public void LocalRoute (Test formval) 
         {
@@ -18,6 +21,7 @@ namespace DotNetCoreVer1.InterFaces
             {
                 case ApplicatioNames.AlborzContactManagingDirector:
                 {
+                   
                     // switch (applicationames) {
                     //     case ApplicatioNames.AlborzContactManagingDirector:
                     //         {
