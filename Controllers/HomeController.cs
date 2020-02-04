@@ -24,6 +24,12 @@ namespace DotNetCoreVer1.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult HandelForm (Test ApplicatioNames, Test TestTypes, Test ProjectNames) 
+        {
+
+        }
+        
         public IActionResult Privacy()
         {
             return View();
