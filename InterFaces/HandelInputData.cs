@@ -4,7 +4,7 @@ namespace DotNetCoreVer1.InterFaces
 {
     public interface IHandelInputData 
     {
-        void LocalRoute (Test FormVal);
+        void LocalRoute (Test formval);
     }
     public class HandelInputData : IHandelInputData 
     {
@@ -12,35 +12,35 @@ namespace DotNetCoreVer1.InterFaces
         {
 
         }
-        public void LocalRoute (Test FormVal) 
+        public void LocalRoute (Test formval) 
         {
-            switch (FormVal.ApplicatioName) 
+            switch (formval.ApplicatioName) 
             {
                 case ApplicatioNames.AlborzContactManagingDirector:
-                    {
-                        // switch (applicationames) {
-                        //     case ApplicatioNames.AlborzContactManagingDirector:
-                        //         {
-                        //             switch (testtypes) {
-                        //                 case TestTypes.AcceptanceTest:
-                        //                     // string[] testrepo = Testobj.TestAction1();
+                {
+                    // switch (applicationames) {
+                    //     case ApplicatioNames.AlborzContactManagingDirector:
+                    //         {
+                    //             switch (testtypes) {
+                    //                 case TestTypes.AcceptanceTest:
+                    //                     // string[] testrepo = Testobj.TestAction1();
 
-                        //                     // IList<TestingResult> TestResultList = new List<TestingResult>();
-                        //                     // TestResultList.Add(new TestingResult() { TestCheck1 = ApplicatioName,TestCheck2 = ProjectName, TestCheck3 = TestType });
+                    //                     // IList<TestingResult> TestResultList = new List<TestingResult>();
+                    //                     // TestResultList.Add(new TestingResult() { TestCheck1 = ApplicatioName,TestCheck2 = ProjectName, TestCheck3 = TestType });
 
-                        //                     //  TestingResult aaa = new TestingResult();
-                        //                     //  aaa.TestCheck1 = ApplicatioName;
-                        //                     //  aaa.TestCheck2 = ProjectName;
-                        //                     //  aaa.TestCheck3 = TestType;
+                    //                     //  TestingResult aaa = new TestingResult();
+                    //                     //  aaa.TestCheck1 = ApplicatioName;
+                    //                     //  aaa.TestCheck2 = ProjectName;
+                    //                     //  aaa.TestCheck3 = TestType;
 
-                        //                     //  ViewData["testindexlist"] = TestResultList;
-                        //                     break;
-                        //             }
-                        //         }
-                        //         break;
-                        // }
-                        break;
-                    }
+                    //                     //  ViewData["testindexlist"] = TestResultList;
+                    //                     break;
+                    //             }
+                    //         }
+                    //         break;
+                    // }
+                    break;
+                }
             }
         }
     }
