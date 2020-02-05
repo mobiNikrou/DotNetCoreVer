@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using DotNetCoreVer1.Infrastructure;
 
 namespace DotNetCoreVer1 {
     public class Startup {
@@ -27,8 +28,9 @@ namespace DotNetCoreVer1 {
             services.AddDbContext<TestResultContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("TestResultContext")));
             services.AddMvc();
+            ServiceLocator.SetLocatorProvider(services.BuildServiceProvider());
             services.AddScoped<ISaveDB, SaveDB>();
-            services.AddScoped<IHandelInputData , HandelInputData>();
+            services.AddTransient<IHandelInputData , HandelInputData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

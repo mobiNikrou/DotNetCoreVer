@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using DotNetCoreVer1.Models;
 using DotNetCoreVer1.InterFaces;
 using DotNetCoreVer1.Data;
+using DotNetCoreVer1.Infrastructure;
 
 namespace DotNetCoreVer1.Controllers
 {
@@ -25,7 +26,8 @@ namespace DotNetCoreVer1.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            
+            IHandelInputData myService = ServiceLocator.Current.GetInstance<IHandelInputData>();
+            myService.HelloWorld();
             return View();
         }
 

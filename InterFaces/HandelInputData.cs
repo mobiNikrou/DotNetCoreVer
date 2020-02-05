@@ -6,6 +6,7 @@ namespace DotNetCoreVer1.InterFaces
     public interface IHandelInputData 
     {
         void LocalRoute (Test formval);
+        public string HelloWorld();
     }
     public class HandelInputData : IHandelInputData 
     {
@@ -51,6 +52,10 @@ namespace DotNetCoreVer1.InterFaces
                     break;
                 }
             }
+        }
+        public string HelloWorld()
+        {
+             return "HelloWorld";
         }
     }
 }

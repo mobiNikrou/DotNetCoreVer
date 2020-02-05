@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ViraApim.Core
+namespace DotNetCoreVer1.Infrastructure
 {
     public class ServiceLocator
     {
