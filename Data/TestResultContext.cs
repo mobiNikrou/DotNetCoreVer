@@ -1,4 +1,5 @@
 using DotNetCoreVer1.Models;
+using DotNetCoreVer1.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetCoreVer1.Data {
@@ -6,16 +7,12 @@ namespace DotNetCoreVer1.Data {
 
         
 
-        public TestResultContext (){
+        public TestResultContext(){
         }
 
         public TestResultContext (DbContextOptions<TestResultContext> options) : base (options) { }
-
+        public DbSet<TestingResult> TestingResult { get; set; }
 
             
-}
-
-        public DbSet<TestingResult> TestingResult { get; set; }
     }
-
 }

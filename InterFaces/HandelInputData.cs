@@ -15,7 +15,6 @@ namespace DotNetCoreVer1.InterFaces
         {
             Data = new TestingResult();
             context = new TestResultContext();
-
         }
         public void LocalRoute (Test formval) 
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Security.Cryptography;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotNetCoreVer1.Models;
 using DotNetCoreVer1.InterFaces;
+using DotNetCoreVer1.Data;
 
 namespace DotNetCoreVer1.Controllers
 {
@@ -17,11 +19,13 @@ namespace DotNetCoreVer1.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+           
         }
 
         [HttpGet]
         public IActionResult Index()
         {
+            
             return View();
         }
 

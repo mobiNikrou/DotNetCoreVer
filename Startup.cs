@@ -26,8 +26,9 @@ namespace DotNetCoreVer1 {
             services.AddControllersWithViews();
             services.AddDbContext<TestResultContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("TestResultContext")));
-            services.AddScoped<IHandelInputData, HandelInputData>();
+            services.AddMvc();
             services.AddScoped<ISaveDB, SaveDB>();
+            services.AddScoped<IHandelInputData , HandelInputData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
