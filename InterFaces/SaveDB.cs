@@ -1,19 +1,17 @@
+using DotNetCoreVer1.Data;
 using DotNetCoreVer1.Models;
 
-namespace DotNetCoreVer1.InterFaces
-{
-    public interface ISaveDB
-    {
-        void InjectData (TestingResult testingresultdata);
+namespace DotNetCoreVer1.InterFaces {
+    public interface ISaveDB {
+        void InjectData (TestingResult Data);
     }
-    public class SaveDB : ISaveDB
-    {
-        public SaveDB () 
-        {
-            
+    public class SaveDB : ISaveDB {
+        private readonly TestResultContext _context;
+        public SaveDB () {
         }
-        public void InjectData (TestingResult testingresultdata) 
-        {
+        public void InjectData (TestingResult Data) {
+
+            _context.SaveChanges ();
         }
     }
 }

@@ -1,4 +1,5 @@
 using DotNetCoreVer1.Models;
+using DotNetCoreVer1.Data;
 
 namespace DotNetCoreVer1.InterFaces 
 {
@@ -8,12 +9,13 @@ namespace DotNetCoreVer1.InterFaces
     }
     public class HandelInputData : IHandelInputData 
     {
-        private readonly TestingResult testingresultdata;
-        private readonly SaveDB savedb;
+        TestResultContext context;
+        TestingResult Data;
         public HandelInputData () 
         {
-            savedb = new SaveDB();
-            testingresultdata = new TestingResult();
+            Data = new TestingResult();
+            context = new TestResultContext();
+
         }
         public void LocalRoute (Test formval) 
         {
@@ -21,7 +23,11 @@ namespace DotNetCoreVer1.InterFaces
             {
                 case ApplicatioNames.AlborzContactManagingDirector:
                 {
-                   
+                    Data.TestCheck1 = "1";
+                    Data.TestCheck2 = "2";
+                    Data.TestCheck3 = "4";
+                    context.TestingResult.Add(Data);
+                    context.SaveChanges();
                     // switch (applicationames) {
                     //     case ApplicatioNames.AlborzContactManagingDirector:
                     //         {
