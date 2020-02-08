@@ -7,34 +7,34 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotNetCoreVer1.Models;
-using DotNetCoreVer1.InterFaces;
+using DotNetCoreVer1.Services;
 using DotNetCoreVer1.Data;
-using DotNetCoreVer1.Infrastructure;
+
 
 namespace DotNetCoreVer1.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IHandleData _handleData;
+        //TestResultContext _myService = ServiceLocator.Current.GetInstance<TestResultContext>();
+        public HomeController(ILogger<HomeController> logger,IHandleData handleData)
         {
             _logger = logger;
-           
+            _handleData = handleData;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            IHandelInputData myService = ServiceLocator.Current.GetInstance<IHandelInputData>();
-            myService.HelloWorld();
+            
             return View();
         }
 
         [HttpPost]
-        public ActionResult HandelForm(HandelInputData handelinputdata,Test FormVal) 
+        public IActionResult HandelForm(Test FormVal) 
         {
-            handelinputdata.LocalRoute(FormVal);
+            _handleData.LocalRoute(FormVal);
             return RedirectToAction("Index");
         }
 

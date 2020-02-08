@@ -1,21 +1,20 @@
 using DotNetCoreVer1.Models;
 using DotNetCoreVer1.Data;
+using DotNetCoreVer1.Infrastructure;
 
-namespace DotNetCoreVer1.InterFaces 
+namespace DotNetCoreVer1.Services 
 {
-    public interface IHandelInputData 
+    public interface IHandleData
     {
         void LocalRoute (Test formval);
-        public string HelloWorld();
     }
-    public class HandelInputData : IHandelInputData 
+    public class HandleData : IHandleData
     {
-        TestResultContext context;
-        TestingResult Data;
-        public HandelInputData () 
+        
+        private readonly ISaveDB _savedb;
+        public HandleData (ISaveDB savedb)
         {
-            Data = new TestingResult();
-            context = new TestResultContext();
+            _savedb =  savedb;
         }
         public void LocalRoute (Test formval) 
         {
@@ -23,11 +22,11 @@ namespace DotNetCoreVer1.InterFaces
             {
                 case ApplicatioNames.AlborzContactManagingDirector:
                 {
-                    Data.TestCheck1 = "1";
-                    Data.TestCheck2 = "2";
-                    Data.TestCheck3 = "4";
-                    context.TestingResult.Add(Data);
-                    context.SaveChanges();
+                     
+                    var a =_savedb.InjectData();
+                    
+                    // context.TestingResult.Add(Data);
+                    // context.SaveChanges();
                     // switch (applicationames) {
                     //     case ApplicatioNames.AlborzContactManagingDirector:
                     //         {

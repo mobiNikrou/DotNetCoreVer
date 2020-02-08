@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace DotNetCoreVer1.Infrastructure
 {
     public class ServiceLocator

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotNetCoreVer1.Data;
-using DotNetCoreVer1.InterFaces;
+using DotNetCoreVer1.Infrastructure;
+using DotNetCoreVer1.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,7 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using DotNetCoreVer1.Infrastructure;
 
 namespace DotNetCoreVer1 {
     public class Startup {
@@ -22,15 +22,20 @@ namespace DotNetCoreVer1 {
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews();
+        public void ConfigureServices (IServiceCollection services) {
+            
+            
+            services.AddControllersWithViews ();
+            services.AddMvc();
+            services.AddScoped<ISaveDB, SaveDB>();
+            services.AddScoped<IHandleData, HandleData>();
+           
+            
             services.AddDbContext<TestResultContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("TestResultContext")));
-            services.AddMvc();
-            ServiceLocator.SetLocatorProvider(services.BuildServiceProvider());
-            services.AddScoped<ISaveDB, SaveDB>();
-            services.AddTransient<IHandelInputData , HandelInputData>();
+            ServiceLocator.SetLocatorProvider (services.BuildServiceProvider ());
+            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
