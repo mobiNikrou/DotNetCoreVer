@@ -22,8 +22,10 @@ namespace DotNetCoreVer1.Services
             {
                 case ApplicatioNames.AlborzContactManagingDirector:
                 {
+                    
+                    string TestResult = "Calling test script here";
                      
-                    var a =_savedb.InjectData();
+                    _savedb.InjectData(TestResult);
                     
                     // context.TestingResult.Add(Data);
                     // context.SaveChanges();
